@@ -1,53 +1,85 @@
-# Spaced Revision Task Logger
+# 🧠 Spaced Revision Task Logger
 
-A **pixel-style desktop study diary** built with Python and Tkinter for tracking daily study tasks, logging topics, and automatically surfacing revision work after **3, 7, and 21 days**.
+<p align="center">
+  <strong>A pixel-style desktop study diary built to make revision automatic.</strong><br>
+  Study → Log → Revise → Repeat
+</p>
 
-The app is designed around a simple loop:
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/Tkinter-GUI-FF6F00?style=for-the-badge" alt="Tkinter">
+  <img src="https://img.shields.io/badge/Storage-JSON-000000?style=for-the-badge&logo=json&logoColor=white" alt="JSON">
+  <img src="https://img.shields.io/github/last-commit/Aagam-jain124/Spaced-Revision-Task-Logger?style=for-the-badge" alt="Last commit">
+</p>
 
-**Study → Log → Revise → Repeat**
+<p align="center">
+  <a href="#-features">Features</a> •
+  <a href="#-how-it-works">How it works</a> •
+  <a href="#-getting-started">Run it</a> •
+  <a href="#-roadmap">Roadmap</a>
+</p>
+
+---
+
+## 🎯 What is this?
+
+**Spaced Revision Task Logger** is a lightweight desktop study system for people who are tired of writing:
+
+> *"I'll revise this later."*
+
+Instead of keeping revision in your head, the app records what you studied and brings it back at fixed intervals:
+
+### **3 days → 7 days → 21 days**
+
+No account. No server. No database. Just a local Python app and your study data.
+
+---
 
 ## ✨ Features
 
-- 📋 **Daily task list** — add study tasks and mark them complete.
-- 📚 **Topic logging** — record what you studied each day.
-- 🔁 **Automatic spaced revision** — completed tasks and studied topics reappear after 3, 7, and 21 days.
-- 📅 **Date navigation** — move between days, jump to a specific date, or return to today.
-- 📊 **Daily progress bar** — see how many planned tasks are complete.
-- 💾 **Persistent local storage** — data is saved automatically to `study_diary.json`.
-- 🛡️ **Automatic backup** — the previous data file is kept as `study_diary.json.bak`.
-- 🎮 **Pixel-inspired UI** — chunky controls, pixel-art icons, and retro styling.
-- ⌨️ **Keyboard shortcuts** — use `Ctrl + Left` / `Ctrl + Right` to navigate days.
-- 🖥️ **Pure Python desktop app** — uses Tkinter and the Python standard library; no third-party packages are required.
+| Feature | What it does |
+|---|---|
+| 📋 **Daily Tasks** | Create study tasks and mark them complete |
+| 📚 **Topic Logging** | Record what you actually studied |
+| 🔁 **Spaced Revision** | Automatically surfaces revision after 3, 7 and 21 days |
+| 📅 **Date Navigation** | Move through previous and future study days |
+| 📊 **Progress Tracking** | See daily completion progress |
+| 💾 **Auto Save** | Stores data locally in JSON |
+| 🛡️ **Backup** | Keeps a `.bak` copy of the previous data |
+| 🎮 **Pixel UI** | Retro-inspired visual design |
+| ⌨️ **Keyboard Controls** | Navigate dates with `Ctrl + ←` / `Ctrl + →` |
+| 🖥️ **Offline First** | Works without an internet connection |
+
+<details>
+<summary><strong>🔎 What does the app look like internally?</strong></summary>
+
+The main window is organized around:
+
+- 📅 Selected study date
+- 📋 Tasks planned for that day
+- 📈 Completion progress
+- 📚 Topics studied
+- 🔁 3-day revision queue
+- 🔁 7-day revision queue
+- 🔁 21-day revision queue
+
+</details>
+
+---
 
 ## 🧠 How Spaced Revision Works
 
-The app uses three fixed revision intervals:
+When a task is completed or a topic is logged, the app schedules it for three future revision points.
 
-**3 days → 7 days → 21 days**
-
-When a task is marked **DONE**, or a topic is logged, it becomes eligible for revision at those intervals.
-
-For example:
-
-| Studied | Revision 1 | Revision 2 | Revision 3 |
+| Study date | +3 days | +7 days | +21 days |
 |---|---|---|---|
-| Sept 30 | Oct 3 | Oct 7 | Oct 21 |
+| **Sept 30** | **Oct 3** | **Oct 7** | **Oct 21** |
 
-Revision items appear in the footer under their respective interval. Tick an item once you have revised it.
+When a revision becomes due, it appears in the corresponding revision queue.
 
-> The current implementation uses fixed intervals rather than an adaptive spaced-repetition algorithm.
+> **Current algorithm:** fixed 3/7/21-day intervals. It is not yet an adaptive algorithm based on recall difficulty.
 
-## 🖼️ App Structure
-
-The main screen contains:
-
-- **Date navigation** at the top
-- **Tasks** for the selected day
-- **Daily progress** indicator
-- **Topics studied today**
-- **Revision footer** containing 3-day, 7-day, and 21-day revision queues
-
-The UI is intentionally lightweight so it can be used as a daily study companion without needing an account, server, or database.
+---
 
 ## 🚀 Getting Started
 
@@ -56,80 +88,167 @@ The UI is intentionally lightweight so it can be used as a daily study companion
 - Python 3
 - Tkinter
 
-Tkinter is normally included with Python on Windows. On Ubuntu/Debian, install it with:
+No external Python packages are currently required.
 
-```bash
-sudo apt install python3-tk
-```
-
-### Run
-
-Clone the repository:
+### 1. Clone
 
 ```bash
 git clone https://github.com/Aagam-jain124/Spaced-Revision-Task-Logger.git
 cd Spaced-Revision-Task-Logger
 ```
 
-Run the app:
+### 2. Run
+
+**Windows:**
 
 ```bash
 python study_diary_tk.py
 ```
 
-On some systems you may need:
+**Linux/macOS:**
 
 ```bash
 python3 study_diary_tk.py
 ```
 
-## 📁 Files
+<details>
+<summary><strong>🐧 Linux users</strong></summary>
+
+If Tkinter is missing on Debian/Ubuntu:
+
+```bash
+sudo apt install python3-tk
+```
+
+</details>
+
+---
+
+## 📁 Project Structure
 
 ```
 Spaced-Revision-Task-Logger/
-├── study_diary_tk.py       # Main Tkinter application
-├── study_diary.json        # Local study data
-├── study_diary.json.bak    # Previous saved data backup
-└── README.md
+│
+├── 🐍 study_diary_tk.py
+│   └── Main Tkinter application
+│
+├── 💾 study_diary.json
+│   └── Local study data
+│
+├── 🛡️ study_diary.json.bak
+│   └── Previous data backup
+│
+└── 📖 README.md
+    └── Project documentation
 ```
 
-### Data format
+### 💾 Your data stays local
 
-Study data is stored locally in JSON. The application creates the file automatically and keeps a backup of the previous version whenever it saves.
+The app stores study information in JSON instead of requiring a cloud service.
 
-This also keeps the data portable and easy to inspect or back up manually.
+That means the data is:
 
-## 🎯 Project Philosophy
+- 🔒 Local
+- 📦 Portable
+- 🔍 Human-readable
+- 💾 Easy to back up
 
-Most study planners answer:
+---
 
-> **"What should I study?"**
+## 🎮 Quick Interaction Guide
 
-This project focuses on another important question:
+### Daily workflow
+
+```text
+        PLAN
+          ↓
+      📋 Add tasks
+          ↓
+       STUDY
+          ↓
+   📚 Log topics
+          ↓
+      ✅ Complete
+          ↓
+    ┌─────┼─────┐
+    ↓     ↓     ↓
+   +3d   +7d   +21d
+    ↓     ↓     ↓
+    🔁 REVISION
+```
+
+### Keyboard
+
+| Shortcut | Action |
+|---|---|
+| `Ctrl + ←` | Previous day |
+| `Ctrl + →` | Next day |
+
+---
+
+## 🧪 Current Status
+
+**🟢 Working prototype**
+
+The core desktop workflow is implemented and usable. The project is intentionally small and is being developed incrementally.
+
+---
+
+## 🗺️ Roadmap
+
+<details>
+<summary><strong>🔜 Planned improvements</strong></summary>
+
+- [ ] Adaptive revision intervals based on recall
+- [ ] Subject/chapter categories
+- [ ] Search and filtering
+- [ ] Revision history
+- [ ] Study statistics
+- [ ] Weak-topic tracking
+- [ ] Configurable revision intervals
+- [ ] Export/import
+- [ ] Optional reminders
+- [ ] Improved cross-platform packaging
+
+</details>
+
+---
+
+## 🎯 Design Philosophy
+
+Most study planners focus on:
+
+> **"What should I study today?"**
+
+This project focuses on:
 
 > **"What do I need to remember again?"**
 
-The goal is to turn revision into a visible, trackable process rather than relying on memory or vague plans like *"I'll revise this later."*
+The goal is not to create another complicated productivity dashboard.
 
-## 🚧 Current Status
+It is to build a small tool that makes **revision hard to forget**.
 
-**Working prototype / actively evolving**
+---
 
-The core desktop application is implemented. The project can be extended with more advanced scheduling, analytics, and study workflows as development continues.
+## 🤝 Contributing
 
-## 🔮 Possible Future Improvements
+Found a bug or have an improvement idea?
 
-- [ ] Adaptive revision intervals based on recall/performance
-- [ ] Subject and chapter categories
-- [ ] Search and filtering
-- [ ] Revision history and statistics
-- [ ] Weak-topic / mistake tracking
-- [ ] Configurable revision intervals
-- [ ] Export/import tools
-- [ ] Better cross-platform packaging
-- [ ] Browser version / shared data format
-- [ ] Optional reminders or notifications
+1. Fork the repository
+2. Create a branch
+3. Make your change
+4. Open a pull request
+
+For larger changes, opening an issue first can help keep the project direction organized.
+
+---
 
 ## 📄 License
 
 No license has been specified yet.
+
+---
+
+<p align="center">
+  <strong>Built for studying smarter, not just studying longer. 🧠</strong>
+</p>
