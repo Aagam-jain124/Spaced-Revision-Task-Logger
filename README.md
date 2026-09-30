@@ -14,10 +14,23 @@
 
 <p align="center">
   <a href="#-features">Features</a> •
-  <a href="#-how-it-works">How it works</a> •
+  <a href="#-how-spaced-revision-works">How it works</a> •
   <a href="#-getting-started">Run it</a> •
   <a href="#-roadmap">Roadmap</a>
 </p>
+
+---
+
+## 😂 The actual problem
+
+> **Me:** "I'll remember this."
+>
+> **My brain 3 weeks later:**  
+> *404 — Memory Not Found*
+
+That's why this exists.
+
+Instead of trusting Future Me™ to remember what Present Me studied, the app brings old material back automatically.
 
 ---
 
@@ -27,7 +40,7 @@
 
 > *"I'll revise this later."*
 
-Instead of keeping revision in your head, the app records what you studied and brings it back at fixed intervals:
+The app records what you studied and brings it back at fixed intervals:
 
 ### **3 days → 7 days → 21 days**
 
@@ -75,7 +88,17 @@ When a task is completed or a topic is logged, the app schedules it for three fu
 |---|---|---|---|
 | **Sept 30** | **Oct 3** | **Oct 7** | **Oct 21** |
 
-When a revision becomes due, it appears in the corresponding revision queue.
+And the emotional journey is basically:
+
+```text
+Day 0     Day 3          Day 7             Day 21
+ │         │              │                  │
+ 📚       😎             🤔                 💀
+ "Easy"   "I know this"  "Wait..."          "WHAT IS THIS?"
+ │         │              │                  │
+ └─────────┴──────────────┴──────────────────┘
+                 🔁 REVISION
+```
 
 > **Current algorithm:** fixed 3/7/21-day intervals. It is not yet an adaptive algorithm based on recall difficulty.
 
@@ -183,6 +206,30 @@ That means the data is:
 |---|---|
 | `Ctrl + ←` | Previous day |
 | `Ctrl + →` | Next day |
+
+---
+
+## 🤣 One more thing...
+
+### Me when I finish studying a chapter
+
+> **"Never need to see this again."**  
+> — Me, approximately 4 minutes before the revision queue appears
+
+### The revision queue:
+
+```text
+┌──────────────────────────┐
+│  📚 HELLO AGAIN.         │
+│                          │
+│  You studied this.       │
+│  You forgot this.        │
+│  Revise this.            │
+└──────────────────────────┘
+```
+
+**Brain:** *Can we just watch YouTube instead?*  
+**App:** **No. 🔁**
 
 ---
 
